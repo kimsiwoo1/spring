@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<context:property-placeholder location="classpath:kr/or/ddit/config/mybatis/db.properties"/>
+	<bean name="dbProperty" class="kr.or.ddit.test.ioc.DbProperty">
+		<constructor-arg name="driver" value="${driver}"/>
+		<constructor-arg name="url" value="${url}"/>
+		<constructor-arg name="user" value="${user}"/>
+		<constructor-arg name="pass" value="${pass}"/>
+	</bean>
+	
+	<bean name="dbPropertySetter" class="kr.or.ddit.test.ioc.DbProperty">
+		<property name="driver" value="${driver}"/>
+		<property name="url" value="${url}"/>
+		<property name="user" value="${user}"/>
+		<property name="pass" value="${pass}"/>
+	</bean>
+
+</beans>
