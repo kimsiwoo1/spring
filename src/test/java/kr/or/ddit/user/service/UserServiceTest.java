@@ -22,8 +22,6 @@ public class UserServiceTest extends RootTestConfig{
 	@Resource(name="userService")
 	private IUserService userService;
 	
-
-	
 	@Test
 	public void getUserListTest() {
 		/***Given***/
