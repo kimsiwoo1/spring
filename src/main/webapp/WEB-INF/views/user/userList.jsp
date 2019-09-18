@@ -59,9 +59,6 @@ $(document).ready(function(){
 </head>
 
 <body>
-<form id="frm" action="${cp }/user" method="get">
-	<input type="hidden" id="userId" name="userId"/>
-</form>
 
 	<!-- header -->
 	header

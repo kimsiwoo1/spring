@@ -19,6 +19,13 @@
 <body>
 	<h2>mvc/view.jsp</h2>
 	
+	<h3>redirect Attribute</h3>
+	<form action="${cp }/mvc/redirect">
+		<input type="text" name="userId" value="brown"/><br>
+		<input type="submit" value="전송"/>
+	</form>
+	
+	<h3>requestParam</h3>
 	<form action="${cp }/mvc/requestParam" method="post">
 		userId : <input type="text" name="userId" value="sally"/><br>
 		<input type="submit" value="전송"/>
@@ -29,6 +36,28 @@
 		<input type="radio" name="path" value="brown" checked="checked"/>ㅂ<br>
 		<input type="radio" name="path" value="sally"/>ㅅ<br>
 		<input type="button" id="pathBtn"value="전송"/>
+	</form>
+	
+	<h3>requestPart</h3>
+	<form id="frmPart" action="${cp }/mvc/upload" enctype="multipart/form-data" method="post">
+		<input type="text" name="userId" value="brown"/><br>
+		<input type="file" name="picture"/><br>
+		<input type="submit" value="전송"/><br>
+	</form>
+	
+	<h3>multi parameter</h3>
+	<form action="${cp }/mvc/multiParameter" method="post">
+		<input type="text" name="userId" value="brown"/><br>
+		<input type="text" name="userId" value="sally"/><br>
+		<input type="text" name="addr.addr1" value="대전시 중구 중앙로 76"/><br>
+		<input type="text" name="addr.addr2" value="DDIT"/><br>
+		
+		<input type="text" name="addrList[0].addr1" value="대전시 중구 중앙로 76 list1"/><br>
+		<input type="text" name="addrList[0].addr2" value="DDIT"/><br>
+		
+		<input type="text" name="addrList[1].addr1" value="대전시 중구 중앙로 76 list2"/><br>
+		<input type="text" name="addrList[1].addr2" value="DDIT"/><br>
+		<input type="submit" value="전송"/>
 	</form>
 </body>
 </html>
