@@ -5,13 +5,17 @@ import java.util.Date;
 
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionBindingListener;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
 
 import kr.or.ddit.encrypt.kisa.sha256.KISA_SHA256;
 
 public class User implements HttpSessionBindingListener{
 	private String userId;
+	
+	@NotNull
 	private String pass;
 	private String userNm;
 	private String alias;
