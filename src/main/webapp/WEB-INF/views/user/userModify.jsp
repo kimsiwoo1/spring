@@ -81,13 +81,13 @@ function setTestData(){
          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
             <form id="frm" class="form-horizontal" role="form"
-            	action="${cp}/userModify" method="post"
+            	action="${cp}/user/userModify" method="post"
             	enctype="multipart/form-data">
             	
             	 <div class="form-group">
                   <label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
                   <div class="col-sm-10">
-                  <img src="${cp }/userPicture?userId=${user.userId}"/>
+                  <img src="${cp }/user/userPicture?userId=${user.userId}"/>
                      <input type="file" class="form-control" id="picture" name="picture"
                         placeholder="사용자 사진"/>
                   </div>
@@ -97,7 +97,7 @@ function setTestData(){
                   <label for="userId" class="col-sm-2 control-label">사용자 아이디</label>
                   <div class="col-sm-10">
                      <input type="text" class="form-control" id="userId" name="userId"
-                        placeholder="사용자 아이디" value="${user.userId }">
+                        placeholder="사용자 아이디" value="${user.userId }" readonly="readonly">
                         ${userIdMsg }
                   </div>
                </div>
@@ -121,7 +121,7 @@ function setTestData(){
                <div class="form-group">
                   <label for="reg_dt" class="col-sm-2 control-label">생일</label>
                   <div class="col-sm-10">
-                     <input type="date" class="form-control" id="reg_dt" name="reg_dt" placeholder="생일" value='<fmt:formatDate value="${user.reg_dt }" pattern="yyyy/MM/dd"/>'>
+                     <input type="date" class="form-control" id="reg_dt" name="reg_dt" placeholder="생일" value='<fmt:formatDate value="${user.reg_dt }" pattern="yyyy-MM-dd"/>'>
                   </div>
                </div>
 
