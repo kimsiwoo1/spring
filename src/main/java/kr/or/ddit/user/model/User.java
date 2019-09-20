@@ -1,6 +1,5 @@
 package kr.or.ddit.user.model;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpSessionBindingEvent;
@@ -9,38 +8,41 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
 import kr.or.ddit.encrypt.kisa.sha256.KISA_SHA256;
 
-public class User implements HttpSessionBindingListener{
+public class User implements HttpSessionBindingListener {
 	private String userId;
-	
+
 	@NotNull
 	private String pass;
 	private String userNm;
 	private String alias;
-	
-	@DateTimeFormat(pattern="yyyy-MM-dd")
+
+	@JsonFormat(shape = Shape.STRING, pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date reg_dt;
 	private String reg_dt_fmt = "2019-09-20";
-	
+
 	private String addr1;
 	private String addr2;
 	private String zipcode;
 	private String filename;
 	private String realfilename;
 	private String realfilename2;
-	
-	
+
 	public User() {
-		
+
 	}
+
 	public User(String userId) {
 		this.userId = userId;
 	}
-	
-	public User(String userId, String userNm, String alias, Date reg_dt, String addr1, String addr2,
-			String zipcode, String pass, String filename, String realfilename) {
+
+	public User(String userId, String userNm, String alias, Date reg_dt, String addr1, String addr2, String zipcode,
+			String pass, String filename, String realfilename) {
 		this.userId = userId;
 		this.userNm = userNm;
 		this.alias = alias;
@@ -53,7 +55,6 @@ public class User implements HttpSessionBindingListener{
 		this.realfilename = realfilename;
 	}
 
-	
 	public String getRealfilename2() {
 		return realfilename2;
 	}
@@ -113,11 +114,11 @@ public class User implements HttpSessionBindingListener{
 	public Date getReg_dt() {
 		return reg_dt;
 	}
-	
-	public String getReg_dt_fmt() {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		return sdf.format(reg_dt);
-	}
+
+//	public String getReg_dt_fmt() {
+//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//		return sdf.format(reg_dt);
+//	}
 	public void setReg_dt(Date reg_dt) {
 		this.reg_dt = reg_dt;
 	}
@@ -150,10 +151,6 @@ public class User implements HttpSessionBindingListener{
 		this.reg_dt_fmt = reg_dt_fmt;
 	}
 
-	
-
-
-
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", pass=" + pass + ", userNm=" + userNm + ", alias=" + alias + ", reg_dt="
@@ -163,20 +160,20 @@ public class User implements HttpSessionBindingListener{
 	}
 
 	public boolean checkLoginValidate(String userId, String pass) {
-		//암호화 문장끼리 비교
-		if(userId.equals(this.userId) && KISA_SHA256.encrypt(pass).equals(this.pass))
+		// 암호화 문장끼리 비교
+		if (userId.equals(this.userId) && KISA_SHA256.encrypt(pass).equals(this.pass))
 			return true;
-		
+
 		return false;
 	}
 
 	@Override
 	public void valueBound(HttpSessionBindingEvent event) {
-		
+
 	}
 
 	@Override
 	public void valueUnbound(HttpSessionBindingEvent event) {
-		
+
 	}
 }
