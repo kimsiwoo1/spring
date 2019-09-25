@@ -86,9 +86,10 @@
 				userId = userId == null ? "" : userId;
 			%>
 			<input type="text" id="userId" name="userId" class="form-control"
-				placeholder="userId" required autofocus> <label for="pass"
+				placeholder="userId" value="brown" required autofocus> 
+			<label for="pass"
 				class="sr-only">Password</label> <input type="password" id="pass"
-				name="pass" class="form-control" placeholder="Password" required>
+				name="pass" value="brown1234" class="form-control" placeholder="Password" required>
 
 			<div class="checkbox">
 				<label> <input id="rememberMe" name="rememberMe"

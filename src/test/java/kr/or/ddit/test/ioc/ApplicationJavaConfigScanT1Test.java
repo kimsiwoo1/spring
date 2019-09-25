@@ -11,12 +11,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import kr.or.ddit.user.dao.IUserDao;
 import kr.or.ddit.user.service.IUserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = ApplicationJavaConfigScanT1.class)
+@WebAppConfiguration
 public class ApplicationJavaConfigScanT1Test {
 	private static final Logger logger = LoggerFactory.getLogger(ApplicationJavaConfigScanT1Test.class);
 	@Resource(name="userDao")

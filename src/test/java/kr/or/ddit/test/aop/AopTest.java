@@ -20,7 +20,7 @@ public class AopTest {
 	private IUserService userService;
 	
 	@Test
-	public void test() {
+	public void Aoptest() {
 		/***Given***/
 
 		/***When***/
