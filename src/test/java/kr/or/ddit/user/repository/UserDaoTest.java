@@ -28,7 +28,6 @@ public class UserDaoTest extends RootTestConfig{
 	@Resource(name="userDao")
 	private IUserDao userDao;
 	
-	//테스트에 공통적으로 사용한 자원을 해제
 	@After
 	public void tearDown() {
 		logger.debug("after");

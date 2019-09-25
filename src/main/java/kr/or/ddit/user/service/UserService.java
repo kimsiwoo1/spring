@@ -18,13 +18,10 @@ public class UserService implements IUserService{
 	@Resource(name="userDao")
 	private IUserDao userDao;
 	
-	public UserService() {
-		
-	}
-	
 	public UserService(IUserDao userDao) {
-		this.userDao = userDao;
+		// TODO Auto-generated constructor stub
 	}
+
 	/**
 	* Method : getUserList
 	* 작성자 : PC-07
